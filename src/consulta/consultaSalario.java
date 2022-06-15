@@ -23,13 +23,13 @@ public class consultaSalario extends conexion {
         PreparedStatement ps = null;
         Connection con = getConexion();
         
-        String sql = "INSERT INTO salario(sueldo, cargo, empleados_idempleado) VALUES (?,?,? )";
+        String sql = "INSERT INTO salario(sueldo, cargo) VALUES (?,?)";
         
         try {
             ps = con.prepareStatement(sql);
             ps.setDouble(1,modSa.getSueldoSa());
             ps.setString(2,modSa.getCargoSa());
-            ps.setString(3,modSa.getEmpleadofk());
+            
             ps.execute();
             return true;
              

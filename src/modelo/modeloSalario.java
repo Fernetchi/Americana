@@ -12,7 +12,7 @@ package modelo;
 public class modeloSalario {
     
     private int idSalario;
-    private double sueldoSa;
+    private int sueldoSa;
     private String cargoSa;
     private String empleadofk;
 
@@ -24,11 +24,11 @@ public class modeloSalario {
         this.idSalario = idSalario;
     }
 
-    public double getSueldoSa() {
+    public int getSueldoSa() {
         return sueldoSa;
     }
 
-    public void setSueldoSa(double sueldoSa) {
+    public void setSueldoSa(int sueldoSa) {
         this.sueldoSa = sueldoSa;
     }
 

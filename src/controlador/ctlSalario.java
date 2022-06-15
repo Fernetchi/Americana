@@ -28,14 +28,21 @@ public class ctlSalario implements ActionListener {
         this.frmSa = frmSa;
         this.frmSa.btnSguardar.addActionListener(this);
     }
+    
+        public void iniciar() {
+        frmSa.setTitle("Pago de Salario");
+        frmSa.setLocationRelativeTo(null);
+        frmSa.setVisible(true);
+        }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         
          if (e.getSource() == frmSa.btnSguardar) {
            
-           modSa.setSueldoSa(Double.parseDouble(frmSa.txtScargo.getText()));
-           modSa.setCargoSa(frmSa.txtScargo.getText());
+            modSa.setCargoSa(frmSa.txtScargo.getText());
+           modSa.setSueldoSa(Integer.parseInt(frmSa.txtSsalario.getText()));
+           
 //           modSa.setEmpleadofk((frmSa.cboSlario.getSelectedItem().toString()));
            
            if (conSa.registrar(modSa) ) {

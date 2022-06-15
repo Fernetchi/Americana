@@ -9,9 +9,11 @@ import bd.conexion;
 import consulta.ConsultaAggUsuario;
 import consulta.consultaAgregar;
 import consulta.consultaEmpleado;
+import consulta.consultaSalario;
 import controlador.ctlAgregar;
 import controlador.ctlAgregarUsuario;
 import controlador.ctlEmpleado;
+import controlador.ctlSalario;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -22,6 +24,7 @@ import javax.swing.table.DefaultTableModel;
 import modelo.modeloAggUsuario;
 import modelo.modeloAgregar;
 import modelo.modeloEmpleado;
+import modelo.modeloSalario;
 
 /**
  *
@@ -204,6 +207,11 @@ public class Sistema extends javax.swing.JFrame {
 
     private void jMenuSalarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuSalarioActionPerformed
         this.dispose();
+        modeloSalario modSa = new modeloSalario();
+        consultaSalario conSa = new consultaSalario();
+        frmSalario frmSa = new frmSalario();
+        ctlSalario ctlSa = new ctlSalario(modSa, conSa, frmSa);
+        ctlSa.iniciar();
         
     }//GEN-LAST:event_jMenuSalarioActionPerformed
 
