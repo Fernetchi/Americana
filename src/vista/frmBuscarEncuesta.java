@@ -36,6 +36,7 @@ public class frmBuscarEncuesta extends javax.swing.JFrame {
         String fila [] = new String [9];
         DefaultTableModel modelo;
         
+       
     public frmBuscarEncuesta() {
         initComponents();
         this.setTitle("Busqueda de Encuestas");
@@ -333,7 +334,7 @@ public class frmBuscarEncuesta extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuNuevo;
+    public javax.swing.JMenuItem jMenuNuevo;
     private javax.swing.JMenuItem jMenuSalir;
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JTable tabla;

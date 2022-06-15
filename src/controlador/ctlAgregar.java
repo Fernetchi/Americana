@@ -38,7 +38,6 @@ public class ctlAgregar implements ActionListener{
         frm.txtNombre.setText(null);
         frm.txtApellido.setText(null);
         frm.txtEdad.setText(null);
-        frm.txtSexo.setText(null);
         frm.txtDpto.setText(null);
         frm.txtCiudad.setText(null);
         frm.txtBarrio.setText(null);
@@ -52,7 +51,7 @@ public class ctlAgregar implements ActionListener{
            modA.setNombre(frm.txtNombre.getText()); 
            modA.setApellido(frm.txtApellido.getText()); 
            modA.setEdad(Integer.parseInt(frm.txtEdad.getText())); 
-           modA.setSexo(frm.txtSexo.getText()); 
+           modA.setSexo(frm.cboSexo.getSelectedItem().toString()); 
            modA.setDpto(frm.txtDpto.getText()); 
            modA.setCiudad(frm.txtCiudad.getText()); 
            modA.setBarrio(frm.txtBarrio.getText());
@@ -72,7 +71,7 @@ public class ctlAgregar implements ActionListener{
            modA.setNombre(frm.txtNombre.getText()); 
            modA.setApellido(frm.txtApellido.getText()); 
            modA.setEdad(Integer.parseInt(frm.txtEdad.getText())); 
-           modA.setSexo(frm.txtSexo.getText()); 
+           modA.setSexo(frm.cboSexo.getSelectedItem().toString()); 
            modA.setDpto(frm.txtDpto.getText()); 
            modA.setCiudad(frm.txtCiudad.getText()); 
            modA.setBarrio(frm.txtBarrio.getText());
@@ -108,7 +107,7 @@ public class ctlAgregar implements ActionListener{
                frm.txtNombre.setText(modA.getNombre());
                frm.txtApellido.setText(modA.getApellido());
                frm.txtEdad.setText(String.valueOf(modA.getEdad()));
-               frm.txtSexo.setText(modA.getSexo());
+               modA.setSexo(frm.cboSexo.getSelectedItem().toString());
                frm.txtDpto.setText(modA.getDpto());
                frm.txtCiudad.setText(modA.getCiudad());
                frm.txtBarrio.setText(modA.getBarrio());

@@ -133,6 +133,11 @@ public class frmAgregarUsuario extends javax.swing.JFrame {
 
         comboxtipo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         comboxtipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Usuario" }));
+        comboxtipo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboxtipoActionPerformed(evt);
+            }
+        });
         getContentPane().add(comboxtipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, -1, -1));
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -219,6 +224,10 @@ public class frmAgregarUsuario extends javax.swing.JFrame {
                 frmS.setVisible(true);
                 
     }//GEN-LAST:event_btnUsalirActionPerformed
+
+    private void comboxtipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboxtipoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboxtipoActionPerformed
 
     /**
      * @param args the command line arguments

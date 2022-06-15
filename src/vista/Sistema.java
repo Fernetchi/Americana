@@ -64,6 +64,8 @@ public class Sistema extends javax.swing.JFrame {
         jMenuEstadistica = new javax.swing.JMenu();
         jMenuEmpleados = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuPagodeSalario = new javax.swing.JMenu();
+        jMenuSalario = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenuAggU = new javax.swing.JMenuItem();
         jMenuCambiarU = new javax.swing.JMenuItem();
@@ -115,6 +117,19 @@ public class Sistema extends javax.swing.JFrame {
         jMenuEmpleados.add(jMenuItem1);
 
         jMenuBar1.add(jMenuEmpleados);
+
+        jMenuPagodeSalario.setText("Pago de Salario");
+
+        jMenuSalario.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuSalario.setText("Salario");
+        jMenuSalario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuSalarioActionPerformed(evt);
+            }
+        });
+        jMenuPagodeSalario.add(jMenuSalario);
+
+        jMenuBar1.add(jMenuPagodeSalario);
 
         jMenu3.setText("Configuración");
 
@@ -187,6 +202,11 @@ public class Sistema extends javax.swing.JFrame {
         ctlEm.iniciar();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    private void jMenuSalarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuSalarioActionPerformed
+        this.dispose();
+        
+    }//GEN-LAST:event_jMenuSalarioActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -236,6 +256,8 @@ public class Sistema extends javax.swing.JFrame {
     private javax.swing.JMenu jMenuEmpleados;
     public javax.swing.JMenu jMenuEstadistica;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenu jMenuPagodeSalario;
+    private javax.swing.JMenuItem jMenuSalario;
     public javax.swing.JLabel lblAdmin;
     // End of variables declaration//GEN-END:variables
 

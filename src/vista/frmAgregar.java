@@ -40,7 +40,6 @@ public class frmAgregar extends javax.swing.JFrame {
         txtApellido = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        txtSexo = new javax.swing.JTextField();
         txtDpto = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         txtCiudad = new javax.swing.JTextField();
@@ -57,6 +56,7 @@ public class frmAgregar extends javax.swing.JFrame {
         btnLimpiar = new javax.swing.JButton();
         btnVolver = new javax.swing.JButton();
         btnConsult = new javax.swing.JButton();
+        cboSexo = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -133,18 +133,6 @@ public class frmAgregar extends javax.swing.JFrame {
         jLabel5.setText("Sexo:");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 40, 20));
 
-        txtSexo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSexoActionPerformed(evt);
-            }
-        });
-        txtSexo.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtSexoKeyTyped(evt);
-            }
-        });
-        getContentPane().add(txtSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 220, 80, -1));
-
         txtDpto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtDptoActionPerformed(evt);
@@ -209,6 +197,11 @@ public class frmAgregar extends javax.swing.JFrame {
 
         btnEliminar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnEliminar.setText("Eliminar");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 370, -1, -1));
 
         btnBuscar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -243,6 +236,10 @@ public class frmAgregar extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnConsult, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 240, 90, -1));
+
+        cboSexo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        cboSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mujer", "Hombre" }));
+        getContentPane().add(cboSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 220, 100, -1));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/vistaEncuesta.jpg"))); // NOI18N
@@ -310,20 +307,10 @@ public class frmAgregar extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "El campo no puede estar vacio");
             txtEdad.requestFocus();
         } else {
-            txtSexo.requestFocus();
+            cboSexo.requestFocus();
        }
        
     }//GEN-LAST:event_txtEdadActionPerformed
-
-    private void txtSexoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSexoActionPerformed
-        if ("".equals(txtSexo.getText())) {
-
-            JOptionPane.showMessageDialog(null, "El campo no puede estar vacio");
-            txtSexo.requestFocus();
-        } else {
-            txtDpto.requestFocus();
-       }
-    }//GEN-LAST:event_txtSexoActionPerformed
 
     private void txtDptoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDptoActionPerformed
         if ("".equals(txtDpto.getText())) {
@@ -365,11 +352,6 @@ public class frmAgregar extends javax.swing.JFrame {
         if((c<'a' || c>'z') && (c<'A' || c>'Z') && (c<' ' || c>' ')) evt.consume();
     }//GEN-LAST:event_txtApellidoKeyTyped
 
-    private void txtSexoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSexoKeyTyped
-        char c = evt.getKeyChar();
-        if((c<'a' || c>'z') && (c<'A' || c>'Z') && (c<' ' || c>' ')) evt.consume();
-    }//GEN-LAST:event_txtSexoKeyTyped
-
     private void txtEdadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEdadKeyTyped
         char c = evt.getKeyChar();
         if((c<'0' || c>'9')) evt.consume();
@@ -397,6 +379,10 @@ public class frmAgregar extends javax.swing.JFrame {
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnRegistrarActionPerformed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEliminarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -444,6 +430,7 @@ public class frmAgregar extends javax.swing.JFrame {
     public javax.swing.JButton btnModificar;
     public javax.swing.JButton btnRegistrar;
     public javax.swing.JButton btnVolver;
+    public javax.swing.JComboBox<String> cboSexo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -461,6 +448,5 @@ public class frmAgregar extends javax.swing.JFrame {
     public javax.swing.JTextField txtEdad;
     public javax.swing.JTextField txtId;
     public javax.swing.JTextField txtNombre;
-    public javax.swing.JTextField txtSexo;
     // End of variables declaration//GEN-END:variables
 }
