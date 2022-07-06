@@ -8,7 +8,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import vista.Sistema;
-import vista.Sistema2;
+import vista.frmAgregar;
+import vista.frmAgregar2;
 import vista.frmUsuario;
 
 
@@ -36,8 +37,9 @@ public class conUsuario extends conexion {
                          frmS.setVisible(true);
                          break;
                         case "Usuario":
-                         Sistema2 frm2 = new Sistema2();
-                         frm2.setVisible(true);
+                         frmAgregar2 frmAgg2 = new frmAgregar2();
+                         frmAgg2.setVisible(true);
+                         
                          break;
                 }
                }

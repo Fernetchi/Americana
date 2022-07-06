@@ -30,10 +30,10 @@ public class frmBuscarEncuesta extends javax.swing.JFrame {
        Connection con = c.getConexion();
         Statement stmt = null;
         PreparedStatement ps;
-        String titulos[] = {"Id","Codigo", "Nombre", "Apellido", "Edad", "Sexo", "Dpto", "Ciudad", "Barrio"};
+        String titulos[] = {"Codigo","Nombre", "Apellido", "Edad", "Sexo"};
 //        String titulos[] = {"idRegistro","codigoEn", "nombreEn", "apellidoEn", "edadEn", "sexoEn", "dptoEn", "ciudadEn", "barrioEn"};
 
-        String fila [] = new String [9];
+        String fila [] = new String [6];
         DefaultTableModel modelo;
         
        
@@ -51,15 +51,12 @@ public class frmBuscarEncuesta extends javax.swing.JFrame {
             
                while(rs.next()) {
                    
-                   fila[0] = rs.getString("idRegistro");
-                   fila[1] = rs.getString("codigoEn");
-                   fila[2] = rs.getString("nombreEn");
-                   fila[3] = rs.getString("apellidoEn");
-                   fila[4] = rs.getString("edadEn");
-                   fila[5] = rs.getString("sexoEn");
-                   fila[6] = rs.getString("dptoEn");
-                   fila[7] = rs.getString("ciudadEn");
-                   fila[8] = rs.getString("barrioEn");
+                   fila[0] = rs.getString("codigoEn");
+                   fila[1] = rs.getString("nombreEn");
+                   fila[2] = rs.getString("apellidoEn");
+                   fila[3] = rs.getString("edadEn");
+                   fila[4] = rs.getString("sexoEn");
+                   
                    
                    
                    modelo.addRow(fila);     
@@ -102,31 +99,31 @@ public class frmBuscarEncuesta extends javax.swing.JFrame {
 
         tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Id", "Codigo", "Nombre", "Apellido", "Edad", "Sexo", "Dpto", "Ciudad", "Barrio"
+                "Nombre", "Apellido", "Edad", "Sexo", "Departamento", "Ciudad", "Barrio"
             }
         ));
         jScrollPane1.setViewportView(tabla);
@@ -237,16 +234,13 @@ public class frmBuscarEncuesta extends javax.swing.JFrame {
                    fila[3] = rs.getString("apellidoEn");
                    fila[4] = rs.getString("edadEn");
                    fila[5] = rs.getString("sexoEn");
-                   fila[6] = rs.getString("dptoEn");
-                   fila[7] = rs.getString("ciudadEn");
-                   fila[8] = rs.getString("barrioEn");
                    
                    
                    modelo.addRow(fila);     
                }    
                tabla.setModel(modelo);
        } catch (SQLException e) {
-           
+           System.err.println(e);
        }
     }//GEN-LAST:event_txtScodigoKeyReleased
 
@@ -268,9 +262,6 @@ public class frmBuscarEncuesta extends javax.swing.JFrame {
                    fila[3] = rs.getString("apellidoEn");
                    fila[4] = rs.getString("edadEn");
                    fila[5] = rs.getString("sexoEn");
-                   fila[6] = rs.getString("dptoEn");
-                   fila[7] = rs.getString("ciudadEn");
-                   fila[8] = rs.getString("barrioEn");
                    
                    
                    modelo.addRow(fila);     

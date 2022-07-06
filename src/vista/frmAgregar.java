@@ -5,16 +5,24 @@
  */
 package vista;
 
-import consulta.consultaAgregar;
-import controlador.ctlAgregar;
+import consulta.consultaBarrio;
+import consulta.consultaCiudad;
+import consulta.consultaDepto;
+import controlador.ctlBarrio;
+import controlador.ctlCiudad;
+import controlador.ctlDepto;
 import javax.swing.JOptionPane;
-import modelo.modeloAgregar;
+import modelo.modCiudad;
+import modelo.modDepto;
+import modelo.modeloBarrio;
 
 /**
  *
  * @author Fernando
  */
 public class frmAgregar extends javax.swing.JFrame {
+
+
 
     /**
      * Creates new form agregar
@@ -23,7 +31,11 @@ public class frmAgregar extends javax.swing.JFrame {
         initComponents();
         this.setTitle("Formulario de Encuesta");
         this.setLocationRelativeTo(null);
+        txtCodigo.requestFocus();
+        jMenuLogin.setVisible(false);
     }
+    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -33,6 +45,7 @@ public class frmAgregar extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenu1 = new javax.swing.JMenu();
         jLabel2 = new javax.swing.JLabel();
         txtCodigo = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
@@ -40,11 +53,8 @@ public class frmAgregar extends javax.swing.JFrame {
         txtApellido = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        txtDpto = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        txtCiudad = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        txtBarrio = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         txtEdad = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
@@ -57,7 +67,18 @@ public class frmAgregar extends javax.swing.JFrame {
         btnVolver = new javax.swing.JButton();
         btnConsult = new javax.swing.JButton();
         cboSexo = new javax.swing.JComboBox<>();
+        cboDpto = new javax.swing.JComboBox<>();
+        cboCiudad = new javax.swing.JComboBox<>();
+        cboBarrio = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu2 = new javax.swing.JMenu();
+        jMenuDepto = new javax.swing.JMenuItem();
+        jMenuCiudad = new javax.swing.JMenuItem();
+        jMenuBarrio = new javax.swing.JMenuItem();
+        jMenuLogin = new javax.swing.JMenuItem();
+
+        jMenu1.setText("jMenu1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -133,34 +154,13 @@ public class frmAgregar extends javax.swing.JFrame {
         jLabel5.setText("Sexo:");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 40, 20));
 
-        txtDpto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDptoActionPerformed(evt);
-            }
-        });
-        getContentPane().add(txtDpto, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 250, 140, -1));
-
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel6.setText("Dpto:");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, -1, 20));
 
-        txtCiudad.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCiudadActionPerformed(evt);
-            }
-        });
-        getContentPane().add(txtCiudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 280, 140, -1));
-
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel7.setText("Ciudad:");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, -1, 20));
-
-        txtBarrio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtBarrioActionPerformed(evt);
-            }
-        });
-        getContentPane().add(txtBarrio, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 310, 140, -1));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel8.setText("Barrio:");
@@ -239,11 +239,79 @@ public class frmAgregar extends javax.swing.JFrame {
 
         cboSexo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         cboSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mujer", "Hombre" }));
+        cboSexo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cboSexoActionPerformed(evt);
+            }
+        });
         getContentPane().add(cboSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 220, 100, -1));
+
+        cboDpto.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        cboDpto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cboDptoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(cboDpto, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 250, 140, -1));
+
+        cboCiudad.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        cboCiudad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cboCiudadActionPerformed(evt);
+            }
+        });
+        getContentPane().add(cboCiudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 280, 140, -1));
+
+        cboBarrio.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        cboBarrio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cboBarrioActionPerformed(evt);
+            }
+        });
+        getContentPane().add(cboBarrio, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 310, 140, -1));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/vistaEncuesta.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 630, 440));
+
+        jMenu2.setText("Agregar");
+
+        jMenuDepto.setText("Departamento");
+        jMenuDepto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuDeptoActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuDepto);
+
+        jMenuCiudad.setText("Ciudad");
+        jMenuCiudad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuCiudadActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuCiudad);
+
+        jMenuBarrio.setText("Barrio");
+        jMenuBarrio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuBarrioActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuBarrio);
+
+        jMenuLogin.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuLogin.setText("Login");
+        jMenuLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuLoginActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuLogin);
+
+        jMenuBar1.add(jMenu2);
+
+        setJMenuBar(jMenuBar1);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -312,36 +380,6 @@ public class frmAgregar extends javax.swing.JFrame {
        
     }//GEN-LAST:event_txtEdadActionPerformed
 
-    private void txtDptoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDptoActionPerformed
-        if ("".equals(txtDpto.getText())) {
-
-            JOptionPane.showMessageDialog(null, "El campo no puede estar vacio");
-            txtDpto.requestFocus();
-        } else {
-            txtCiudad.requestFocus();
-       }
-    }//GEN-LAST:event_txtDptoActionPerformed
-
-    private void txtCiudadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCiudadActionPerformed
-        if ("".equals(txtCiudad.getText())) {
-
-            JOptionPane.showMessageDialog(null, "El campo no puede estar vacio");
-            txtCiudad.requestFocus();
-        } else {
-            txtBarrio.requestFocus();
-       }
-    }//GEN-LAST:event_txtCiudadActionPerformed
-
-    private void txtBarrioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBarrioActionPerformed
-         if ("".equals(txtBarrio.getText())) {
-
-            JOptionPane.showMessageDialog(null, "El campo no puede estar vacio");
-            txtBarrio.requestFocus();
-        } else {
-            btnRegistrar.requestFocus();
-       }
-    }//GEN-LAST:event_txtBarrioActionPerformed
-
     private void txtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyTyped
         char c = evt.getKeyChar();
         if((c<'a' || c>'z') && (c<'A' || c>'Z') && (c<' ' || c>' ')) evt.consume();
@@ -383,6 +421,52 @@ public class frmAgregar extends javax.swing.JFrame {
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void jMenuDeptoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuDeptoActionPerformed
+        modDepto modDpto = new modDepto();
+        consultaDepto cDpto = new consultaDepto();
+        frmDepto frmDpto = new frmDepto();
+        ctlDepto ctlDpto = new ctlDepto(modDpto, cDpto, frmDpto);
+        frmDpto.setVisible(true);
+    }//GEN-LAST:event_jMenuDeptoActionPerformed
+
+    private void jMenuCiudadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuCiudadActionPerformed
+        modCiudad modCity = new modCiudad();
+        consultaCiudad conCity = new consultaCiudad();
+        frmCiudad frmCity = new frmCiudad();
+        ctlCiudad ctlCity = new ctlCiudad(modCity, conCity, frmCity);
+        frmCity.setVisible(true);
+    }//GEN-LAST:event_jMenuCiudadActionPerformed
+
+    private void cboDptoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboDptoActionPerformed
+        cboCiudad.requestFocus();
+    }//GEN-LAST:event_cboDptoActionPerformed
+
+    private void jMenuLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuLoginActionPerformed
+        this.dispose();
+        frmUsuario frm = new frmUsuario();
+        frm.setVisible(true);
+    }//GEN-LAST:event_jMenuLoginActionPerformed
+
+    private void jMenuBarrioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuBarrioActionPerformed
+        modeloBarrio modBarrio = new modeloBarrio();
+        consultaBarrio conBarrio = new consultaBarrio();
+        frmBarrio frmTown = new frmBarrio();
+        ctlBarrio ctlTown = new ctlBarrio(modBarrio, conBarrio, frmTown);
+        frmTown.setVisible(true);
+    }//GEN-LAST:event_jMenuBarrioActionPerformed
+
+    private void cboSexoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboSexoActionPerformed
+        cboDpto.requestFocus();
+    }//GEN-LAST:event_cboSexoActionPerformed
+
+    private void cboCiudadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboCiudadActionPerformed
+        cboBarrio.requestFocus();
+    }//GEN-LAST:event_cboCiudadActionPerformed
+
+    private void cboBarrioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboBarrioActionPerformed
+        btnRegistrar.requestFocus();
+    }//GEN-LAST:event_cboBarrioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -430,6 +514,9 @@ public class frmAgregar extends javax.swing.JFrame {
     public javax.swing.JButton btnModificar;
     public javax.swing.JButton btnRegistrar;
     public javax.swing.JButton btnVolver;
+    public javax.swing.JComboBox<String> cboBarrio;
+    public javax.swing.JComboBox<String> cboCiudad;
+    public javax.swing.JComboBox<String> cboDpto;
     public javax.swing.JComboBox<String> cboSexo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -440,13 +527,19 @@ public class frmAgregar extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuBarrio;
+    private javax.swing.JMenuItem jMenuCiudad;
+    private javax.swing.JMenuItem jMenuDepto;
+    private javax.swing.JMenuItem jMenuLogin;
     public javax.swing.JTextField txtApellido;
-    public javax.swing.JTextField txtBarrio;
-    public javax.swing.JTextField txtCiudad;
     public javax.swing.JTextField txtCodigo;
-    public javax.swing.JTextField txtDpto;
     public javax.swing.JTextField txtEdad;
     public javax.swing.JTextField txtId;
     public javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
+
+  
 }

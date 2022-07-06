@@ -13,6 +13,41 @@ public class modeloAgregar {
     private String dpto;
     private String ciudad;
     private String barrio;
+    private int relacionDpto;
+    private int relacionCiudad;
+    private int relacionBarrio;
+
+    public int getRelacionBarrio() {
+        return relacionBarrio;
+    }
+
+    public void setRelacionBarrio(int relacionBarrio) {
+        this.relacionBarrio = relacionBarrio;
+    }
+
+    public int getRelacionDpto() {
+        return relacionDpto;
+    }
+
+    public void setRelacionDpto(int relacionDpto) {
+        this.relacionDpto = relacionDpto;
+    }
+
+    public int getRelacionCiudad() {
+        return relacionCiudad;
+    }
+
+    public void setRelacionCiudad(int relacionCiudad) {
+        this.relacionCiudad = relacionCiudad;
+    }
+
+    public int getRelacion() {
+        return relacionDpto;
+    }
+
+    public void setRelacion(int relacion) {
+        this.relacionDpto = relacion;
+    }
 
     public int getIdRegistro() {
         return idRegistro;

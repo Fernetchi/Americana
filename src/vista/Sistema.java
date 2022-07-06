@@ -8,10 +8,12 @@ package vista;
 import bd.conexion;
 import consulta.ConsultaAggUsuario;
 import consulta.consultaAgregar;
+import consulta.consultaDepto;
 import consulta.consultaEmpleado;
 import consulta.consultaSalario;
 import controlador.ctlAgregar;
 import controlador.ctlAgregarUsuario;
+import controlador.ctlDepto;
 import controlador.ctlEmpleado;
 import controlador.ctlSalario;
 import java.sql.Connection;
@@ -21,6 +23,7 @@ import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.Vector;
 import javax.swing.table.DefaultTableModel;
+import modelo.modDepto;
 import modelo.modeloAggUsuario;
 import modelo.modeloAgregar;
 import modelo.modeloEmpleado;
@@ -63,6 +66,7 @@ public class Sistema extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuAgregar = new javax.swing.JMenuItem();
+        jMenuAggDepto = new javax.swing.JMenuItem();
         jMenuBuscar = new javax.swing.JMenuItem();
         jMenuEstadistica = new javax.swing.JMenu();
         jMenuEmpleados = new javax.swing.JMenu();
@@ -93,6 +97,15 @@ public class Sistema extends javax.swing.JFrame {
             }
         });
         jMenu1.add(jMenuAgregar);
+
+        jMenuAggDepto.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuAggDepto.setText("Agregar Departamento");
+        jMenuAggDepto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuAggDeptoActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuAggDepto);
 
         jMenuBuscar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.CTRL_MASK));
         jMenuBuscar.setText("Buscar Encuesta");
@@ -215,6 +228,16 @@ public class Sistema extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jMenuSalarioActionPerformed
 
+    private void jMenuAggDeptoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuAggDeptoActionPerformed
+        this.dispose();
+        modDepto modDpto = new modDepto();
+        consultaDepto Cdpto = new consultaDepto();
+        frmDepto frmDpto = new frmDepto();
+        ctlDepto ctlDpto = new ctlDepto(modDpto, Cdpto, frmDpto);
+        frmDpto.setLocationRelativeTo(null);
+        frmDpto.setVisible(true);
+    }//GEN-LAST:event_jMenuAggDeptoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -256,6 +279,7 @@ public class Sistema extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenuItem jMenuAggDepto;
     public javax.swing.JMenuItem jMenuAggU;
     private javax.swing.JMenuItem jMenuAgregar;
     private javax.swing.JMenuBar jMenuBar1;

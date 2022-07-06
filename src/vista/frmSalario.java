@@ -13,6 +13,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -24,26 +25,26 @@ public class frmSalario extends javax.swing.JFrame {
     Connection con = c.getConexion();
     public frmSalario() {
         initComponents();
-        mostraEmpleado();
+//        mostraEmpleado();
         
     }
     
     
-    public void mostraEmpleado() {
-        String sql = "SELECT * FROM empleados";
-        try {
-            Statement st = con.createStatement();
-            ResultSet rs = st.executeQuery(sql);
-            while(rs.next()) {
-                
-                cboSalario.addItem(rs.getString("nomEm"));
-            }
-            
-            
-        } catch (SQLException ex) {
-            Logger.getLogger(frmSalario.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
+//    public void mostraEmpleado() {
+//        String sql = "SELECT * FROM empleados";
+//        try {
+//            Statement st = con.createStatement();
+//            ResultSet rs = st.executeQuery(sql);
+//            while(rs.next()) {
+//                
+//                cboSalario.addItem(rs.getString("nomEm"));
+//            }
+//            
+//            
+//        } catch (SQLException ex) {
+//            Logger.getLogger(frmSalario.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -54,20 +55,27 @@ public class frmSalario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        cboSalario = new javax.swing.JComboBox<>();
+        cboEm = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         txtScargo = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        txtSsalario = new javax.swing.JTextField();
         btnSguardar = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnScancelar = new javax.swing.JButton();
+        txtSsalario = new javax.swing.JTextField();
+        btnVolver = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        getContentPane().add(cboSalario, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, 120, -1));
+        cboEm.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        cboEm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cboEmActionPerformed(evt);
+            }
+        });
+        getContentPane().add(cboEm, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, 120, -1));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel2.setText("Empleado:");
@@ -76,12 +84,22 @@ public class frmSalario extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel3.setText("Cargo:");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, -1, 20));
+
+        txtScargo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtScargoActionPerformed(evt);
+            }
+        });
+        txtScargo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtScargoKeyTyped(evt);
+            }
+        });
         getContentPane().add(txtScargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, 120, -1));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel4.setText("Salario:");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, -1, 20));
-        getContentPane().add(txtSsalario, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, 120, -1));
 
         btnSguardar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnSguardar.setText("Guardar");
@@ -92,12 +110,33 @@ public class frmSalario extends javax.swing.JFrame {
         });
         getContentPane().add(btnSguardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, -1, -1));
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton2.setText("Cancelar");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 230, -1, -1));
+        btnScancelar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnScancelar.setText("Cancelar");
+        getContentPane().add(btnScancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 230, -1, -1));
+
+        txtSsalario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSsalarioActionPerformed(evt);
+            }
+        });
+        txtSsalario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtSsalarioKeyTyped(evt);
+            }
+        });
+        getContentPane().add(txtSsalario, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, 120, -1));
+
+        btnVolver.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnVolver.setText("Volver");
+        btnVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVolverActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 20, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/Salario1.jpg"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-200, -90, 730, 520));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-200, -80, 730, 520));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -106,6 +145,45 @@ public class frmSalario extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_btnSguardarActionPerformed
+
+    private void cboEmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboEmActionPerformed
+        txtScargo.requestFocus();
+    }//GEN-LAST:event_cboEmActionPerformed
+
+    private void txtScargoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtScargoActionPerformed
+        if ("".equals(txtScargo.getText())) {
+
+            JOptionPane.showMessageDialog(null, "El campo no puede estar vacio");
+            txtScargo.requestFocus();
+        } else {
+            txtSsalario.requestFocus();
+        }
+    }//GEN-LAST:event_txtScargoActionPerformed
+
+    private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
+        Sistema frm = new Sistema();
+        frm.setVisible(true);
+    }//GEN-LAST:event_btnVolverActionPerformed
+
+    private void txtSsalarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSsalarioActionPerformed
+        if ("".equals(txtSsalario.getText())) {
+
+            JOptionPane.showMessageDialog(null, "El campo no puede estar vacio");
+            txtSsalario.requestFocus();
+        } else {
+            btnSguardar.requestFocus();
+        }
+    }//GEN-LAST:event_txtSsalarioActionPerformed
+
+    private void txtScargoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtScargoKeyTyped
+         char c = evt.getKeyChar();
+        if((c<'a' || c>'z') && (c<'A' || c>'Z') && (c<' ' || c>' ')) evt.consume();
+    }//GEN-LAST:event_txtScargoKeyTyped
+
+    private void txtSsalarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSsalarioKeyTyped
+        char c = evt.getKeyChar();
+        if((c<'0' || c>'9')) evt.consume();
+    }//GEN-LAST:event_txtSsalarioKeyTyped
 
     /**
      * @param args the command line arguments
@@ -143,9 +221,10 @@ public class frmSalario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton btnScancelar;
     public javax.swing.JButton btnSguardar;
-    public javax.swing.JComboBox<String> cboSalario;
-    private javax.swing.JButton jButton2;
+    public javax.swing.JButton btnVolver;
+    public javax.swing.JComboBox<String> cboEm;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

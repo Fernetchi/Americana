@@ -14,7 +14,24 @@ public class modeloSalario {
     private int idSalario;
     private int sueldoSa;
     private String cargoSa;
-    private String empleadofk;
+    private String empleado;
+    private int relacionSalario;
+
+    public String getEmpleado() {
+        return empleado;
+    }
+
+    public void setEmpleado(String empleado) {
+        this.empleado = empleado;
+    }
+
+    public int getRelacionSalario() {
+        return relacionSalario;
+    }
+
+    public void setRelacionSalario(int relacionSalario) {
+        this.relacionSalario = relacionSalario;
+    }
 
     public int getIdSalario() {
         return idSalario;
@@ -39,17 +56,5 @@ public class modeloSalario {
     public void setCargoSa(String cargoSa) {
         this.cargoSa = cargoSa;
     }
-
-    public String getEmpleadofk() {
-        return empleadofk;
-    }
-
-    public void setEmpledoifk(String empledoifk) {
-        this.empleadofk = empledoifk;
-    }
-
-    public void setEmpleadofk(String toString) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
+   
 }

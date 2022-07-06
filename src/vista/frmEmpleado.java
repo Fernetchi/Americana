@@ -5,6 +5,8 @@
  */
 package vista;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Fernando
@@ -47,6 +49,7 @@ public class frmEmpleado extends javax.swing.JFrame {
         btnEbuscar = new javax.swing.JButton();
         btnEeliminar = new javax.swing.JButton();
         btnElista = new javax.swing.JButton();
+        btnJvolver = new javax.swing.JToggleButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -59,32 +62,104 @@ public class frmEmpleado extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel3.setText("Cédula:");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, 20));
+
+        txtEcorreo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEcorreoActionPerformed(evt);
+            }
+        });
         getContentPane().add(txtEcorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, 170, -1));
+
+        txtEcedula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEcedulaActionPerformed(evt);
+            }
+        });
+        txtEcedula.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtEcedulaKeyTyped(evt);
+            }
+        });
         getContentPane().add(txtEcedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 50, 80, -1));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel4.setText("Nombre:");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, 20));
+
+        txtEnombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEnombreActionPerformed(evt);
+            }
+        });
+        txtEnombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtEnombreKeyTyped(evt);
+            }
+        });
         getContentPane().add(txtEnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, 170, -1));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel5.setText("Apellido:");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, 20));
+
+        txtEapellido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEapellidoActionPerformed(evt);
+            }
+        });
+        txtEapellido.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtEapellidoKeyTyped(evt);
+            }
+        });
         getContentPane().add(txtEapellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 110, 170, -1));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel6.setText("Edad:");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, -1, 20));
+
+        txtEedad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEedadActionPerformed(evt);
+            }
+        });
+        txtEedad.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtEedadKeyTyped(evt);
+            }
+        });
         getContentPane().add(txtEedad, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 140, 50, -1));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel7.setText("Dirección:");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, -1, 20));
+
+        txtEdireccion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEdireccionActionPerformed(evt);
+            }
+        });
+        txtEdireccion.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtEdireccionKeyTyped(evt);
+            }
+        });
         getContentPane().add(txtEdireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 170, 210, -1));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel8.setText("Teléfono:");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, -1, 20));
+
+        txtEtelefono.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEtelefonoActionPerformed(evt);
+            }
+        });
+        txtEtelefono.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtEtelefonoKeyTyped(evt);
+            }
+        });
         getContentPane().add(txtEtelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, 100, -1));
 
         txtEid.addActionListener(new java.awt.event.ActionListener() {
@@ -119,6 +194,15 @@ public class frmEmpleado extends javax.swing.JFrame {
         });
         getContentPane().add(btnElista, new org.netbeans.lib.awtextra.AbsoluteConstraints(281, 130, -1, -1));
 
+        btnJvolver.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnJvolver.setText("Volver");
+        btnJvolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnJvolverActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnJvolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 200, -1, -1));
+
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/agregarEmpleado1.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-60, -80, 510, 420));
@@ -135,6 +219,110 @@ public class frmEmpleado extends javax.swing.JFrame {
         frmLE.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnElistaActionPerformed
+
+    private void btnJvolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJvolverActionPerformed
+        Sistema frm = new Sistema();
+        frm.setVisible(true);
+    }//GEN-LAST:event_btnJvolverActionPerformed
+
+    private void txtEcedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEcedulaActionPerformed
+          if ("".equals(txtEcedula.getText())) {
+
+            JOptionPane.showMessageDialog(null, "El campo no puede estar vacio");
+            txtEcedula.requestFocus();
+        } else {
+            txtEnombre.requestFocus();
+        }
+    }//GEN-LAST:event_txtEcedulaActionPerformed
+
+    private void txtEnombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEnombreActionPerformed
+         if ("".equals(txtEnombre.getText())) {
+
+            JOptionPane.showMessageDialog(null, "El campo no puede estar vacio");
+            txtEnombre.requestFocus();
+        } else {
+            txtEapellido.requestFocus();
+        }
+    }//GEN-LAST:event_txtEnombreActionPerformed
+
+    private void txtEapellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEapellidoActionPerformed
+         if ("".equals(txtEapellido.getText())) {
+
+            JOptionPane.showMessageDialog(null, "El campo no puede estar vacio");
+            txtEapellido.requestFocus();
+        } else {
+            txtEedad.requestFocus();
+        }
+    }//GEN-LAST:event_txtEapellidoActionPerformed
+
+    private void txtEedadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEedadActionPerformed
+         if ("".equals(txtEedad.getText())) {
+
+            JOptionPane.showMessageDialog(null, "El campo no puede estar vacio");
+            txtEedad.requestFocus();
+        } else {
+            txtEdireccion.requestFocus();
+        }
+    }//GEN-LAST:event_txtEedadActionPerformed
+
+    private void txtEdireccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEdireccionActionPerformed
+         if ("".equals(txtEdireccion.getText())) {
+
+            JOptionPane.showMessageDialog(null, "El campo no puede estar vacio");
+            txtEdireccion.requestFocus();
+        } else {
+            txtEtelefono.requestFocus();
+        }
+    }//GEN-LAST:event_txtEdireccionActionPerformed
+
+    private void txtEtelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEtelefonoActionPerformed
+         if ("".equals(txtEtelefono.getText())) {
+
+            JOptionPane.showMessageDialog(null, "El campo no puede estar vacio");
+            txtEtelefono.requestFocus();
+        } else {
+            txtEcorreo.requestFocus();
+        }
+    }//GEN-LAST:event_txtEtelefonoActionPerformed
+
+    private void txtEcorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEcorreoActionPerformed
+        if ("".equals(txtEcorreo.getText())) {
+
+            JOptionPane.showMessageDialog(null, "El campo no puede estar vacio");
+            txtEcorreo.requestFocus();
+        } else {
+            btnEregistrar.requestFocus();
+        }
+    }//GEN-LAST:event_txtEcorreoActionPerformed
+
+    private void txtEcedulaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEcedulaKeyTyped
+        char c = evt.getKeyChar();
+        if((c<'0' || c>'9')) evt.consume();
+    }//GEN-LAST:event_txtEcedulaKeyTyped
+
+    private void txtEnombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEnombreKeyTyped
+        char c = evt.getKeyChar();
+        if((c<'a' || c>'z') && (c<'A' || c>'Z') && (c<' ' || c>' ')) evt.consume();
+    }//GEN-LAST:event_txtEnombreKeyTyped
+
+    private void txtEapellidoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEapellidoKeyTyped
+        char c = evt.getKeyChar();
+        if((c<'a' || c>'z') && (c<'A' || c>'Z') && (c<' ' || c>' ')) evt.consume();
+    }//GEN-LAST:event_txtEapellidoKeyTyped
+
+    private void txtEedadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEedadKeyTyped
+        char c = evt.getKeyChar();
+        if((c<'0' || c>'9')) evt.consume();
+    }//GEN-LAST:event_txtEedadKeyTyped
+
+    private void txtEdireccionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEdireccionKeyTyped
+
+    }//GEN-LAST:event_txtEdireccionKeyTyped
+
+    private void txtEtelefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEtelefonoKeyTyped
+        char c = evt.getKeyChar();
+        if((c<'0' || c>'9')) evt.consume();
+    }//GEN-LAST:event_txtEtelefonoKeyTyped
 
     /**
      * @param args the command line arguments
@@ -178,6 +366,7 @@ public class frmEmpleado extends javax.swing.JFrame {
     public javax.swing.JButton btnElista;
     public javax.swing.JButton btnEmodificar;
     public javax.swing.JButton btnEregistrar;
+    public javax.swing.JToggleButton btnJvolver;
     public javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
